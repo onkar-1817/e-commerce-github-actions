@@ -7,28 +7,28 @@
 
  jobs:
    Code:
-     runs-on: ubuntu-slim
+     runs-on: ubuntu-latest
      steps:
-       - name: Get the code
-         run: echo "Clone the code"
+       - name: Clone the code
+         uses: actions/checkout@v7
 
    Build:
      needs: Code
-     runs-on: ubuntu-slim
+     runs-on: ubuntu-latest
      steps:
-       - name: build the code
-         run: echo "Build the code the docker"
+       - name: build the coode with docker 
+         uses: docker/setup-buildx-action@v3
 
    Test:
      needs: Build
-     runs-on: ubuntu-slim
+     runs-on: ubuntu-latest
      steps:
        - name: Test the code
          run: echo "test the code"
          
    Deploy:
      needs: [Code,Build,Test]
-     runs-on: ubuntu-slim
+     runs-on: ubuntu-latest
      steps:
        - name: Run the application
          run: echo "Deploy live server"
