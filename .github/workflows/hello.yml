@@ -30,7 +30,6 @@ jobs:
     steps:
       - name: Show Repository Name
         run: echo "The Repo Name is ${{ github.event.repository.name }}"
-        run: echo "The Repo Name is ${{ github.event.repository.name }}"
 
         
   
