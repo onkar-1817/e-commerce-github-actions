@@ -2,6 +2,16 @@ name: Show Env variables
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: Select the environment you want
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - stg
+          - prd
 
 env:
   NAME: onkar
@@ -16,3 +26,5 @@ jobs:
         run: echo "One fun secret is  ${{ secrets.ONKAR_SECRET }}"
       - name: Show Variables
         run: echo "My Dockerhub Username is ${{ vars.DOCKERHUB_USERNAME }}"
+      - name: Show the input env
+        run: echo "The selected env is ${{ inputs.environment }}"
