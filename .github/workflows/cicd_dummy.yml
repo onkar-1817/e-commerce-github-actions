@@ -1,0 +1,36 @@
+# Goal: To build a CI/CD pipeline (just dummy)
+
+ name: CI_CD_Dummy
+
+ on:
+   push:
+
+ jobs:
+   Code:
+     runs-on: ubuntu-slim
+     steps:
+       - name: Get the code
+         run: echo "Clone the code"
+
+   Build:
+     needs: Code
+     runs-on: ubuntu-slim
+     steps:
+       - name: build the code
+         run: echo "Build the code the docker"
+
+   Test:
+     needs: Build
+     runs-on: ubuntu-slim
+     steps:
+       - name: Test the code
+         run: echo "test the code"
+         
+   Deploy:
+     needs: [Code,Build,Test]
+     runs-on: ubuntu-slim
+     steps:
+       - name: Run the application
+         run: echo "Deploy live server"
+
+
