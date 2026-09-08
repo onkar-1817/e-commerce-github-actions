@@ -6,7 +6,9 @@ name: Hello
 # when the workflow runs
 on:
    push:
-
+  #   paths-ignore:
+  #     - 'README.md'
+ # workflow_dispatch:
 
 # what the workflow does
 jobs:
@@ -17,16 +19,17 @@ jobs:
     # the sequence of steps the job does
     steps:
       - name: Say hello
-        run: echo "Hello, This is start of GithubActions"
+        run: echo "Hello, This is my first githubactions repo"
 
       - name: welcome
         run: echo "Welcome Dosto"
 
- repo-name:
-     needs: greet
-     runs-on: ubuntu-latest
-     steps:
+  repo-name:
+    needs: greet
+    runs-on: ubuntu-latest
+    steps:
       - name: Show Repository Name
+        run: echo "The Repo Name is ${{ github.event.repository.name }}"
         run: echo "The Repo Name is ${{ github.event.repository.name }}"
 
         
