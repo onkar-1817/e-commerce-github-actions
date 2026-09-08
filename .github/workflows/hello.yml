@@ -21,3 +21,10 @@ jobs:
 
       - name: welcome
         run: echo "Welcome Dosto"
+        
+  repo-name:
+    needs: greet
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Repository Name
+        run: echo "The Repo Name is ${{ github.event.repository.name }}"
