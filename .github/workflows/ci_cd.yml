@@ -8,7 +8,7 @@ on:
 jobs:
     # Code
     code:
-        uses: ./.github/workflows/lint_test.yml
+        uses: ./.github/workflows/lint-test.yml
 
     # Build
     build-and-push:
