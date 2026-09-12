@@ -1,4 +1,4 @@
-# Goal: To deploy the built and tested image to an EC2 instance
+# Goal: To deploy the built and tested image to an EC2 d  --build --force-recreate
 
 name: CD
 
